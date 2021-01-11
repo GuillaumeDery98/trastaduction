@@ -79,7 +79,8 @@
     button.onclick = function () {
       var inputValue = input.value;
       var newOutput = "";
-      words = inputValue.split(" ");
+      words = inputValue.replace(/(?:\r\n|\r|\n)/g, " ");
+      words = words.split(" ");
       for (var i = 0; i < words.length; i++) {
         var word = words[i];
         var firstLetter = word.charAt(0);
