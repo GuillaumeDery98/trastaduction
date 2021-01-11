@@ -21,7 +21,68 @@
     ></script>
     <title>Trastaducteur</title>
   </head>
-  <body>
-    <div class="container">test</div>
+  <body style="background-image: url('bg.png')">
+    <div class="container">
+      <div class="row justify-content-center mt-3 mb-3">
+        <h1 class="start-50">TRASTADUCTEUR</h1>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              placeholder="Entrez un texte ici"
+              id="input"
+              style="height: 150px"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-3 mb-3">
+        <img
+          id="button"
+          src="asta.png"
+          width="150rem"
+          height="150rem"
+          style="cursor: pointer"
+        />
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              placeholder="Résultat"
+              id="output"
+              style="height: 220px"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
+  <script>
+    var input = document.getElementById("input");
+    var output = document.getElementById("output");
+    var button = document.getElementById("button");
+    button.onclick = function () {
+      var inputValue = input.value;
+      input.value =
+        "REGARDE PLUS BAS ASTABRUTIS. \r\nTu as choisis le texte :\r\n" +
+        inputValue;
+      var newOutput = "";
+      words = inputValue.split(" ");
+      for (var i = 0; i < words.length; i++) {
+        var word = words[i];
+        var firstLetter = word.charAt(0);
+        if (firstLetter == firstLetter.toUpperCase() && firstLetter == "A") {
+          word = word.replace("A", "Asta");
+        } else {
+          word = word.replace("a", "asta");
+        }
+        newOutput = newOutput + " " + word;
+      }
+      output.value = newOutput;
+    };
+  </script>
 </html>
